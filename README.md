@@ -1,1 +1,1 @@
-# HostitalApp
+# HospitalApp
