@@ -1,0 +1,80 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Doctors Main Page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left sidebar -->
+        <div class="col-sm-2 p-0">
+            <nav class="nav flex-column sidebar" style="height: calc(100vh - 150px)">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Doctor" asp-action="Index">Users List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Doctor" asp-action="Add">Add Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Doctor" asp-action="List">List Appointment</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main content area -->
+        <div class="col-md-10">
+            <!-- Content  -->
+
+            <h1>Hello Doctor this is your main page...</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Firstname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lastname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserRole)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Firstname)
+                            </td>
+                           <td>
+                                @Html.DisplayFor(modelItem => item.Lastname)
+						    </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRole)
+                            </td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSubMenu(event) {
+        event.preventDefault(); // Prevent default link behavior
+        let submenu = document.querySelector('#profileSubMenu');
+        submenu.classList.toggle('submenu-active');
+    }
+</script>

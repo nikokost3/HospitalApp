@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "List Appointment";
+}
+@model List<Appointment>
+
+<h1>Appointment List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Desription</th>
+            <th>Day</th>
+            <th>Doctor ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Id</td>
+                <td>@appointment.Description</td>
+                <td>@appointment.Day</td>
+                <td>@appointment.DoctorId</td>               
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-controller="Patient" asp-action="Index">Return to main page</a>
